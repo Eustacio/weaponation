@@ -21,6 +21,7 @@
 
         <!-- Dependencies -->
         <junit.version>5.2.0</junit.version>
+        <equalsverifier.version>2.4.6</equalsverifier.version>
     </properties>
 
     <dependencies>
@@ -40,6 +41,15 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>runtime</scope>
+        </dependency>
+
+        <!-- EqualsVerifier to check if the equals() and hashCode() method was implemented correctly. -->
+        <!-- https://mvnrepository.com/artifact/nl.jqno.equalsverifier/equalsverifier -->
+        <dependency>
+            <groupId>nl.jqno.equalsverifier</groupId>
+            <artifactId>equalsverifier</artifactId>
+            <version>${equalsverifier.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
