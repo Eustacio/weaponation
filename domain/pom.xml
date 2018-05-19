@@ -14,15 +14,31 @@
 
     <properties>
         <hibernate.core.version>5.3.0.Final</hibernate.core.version>
+        <hibernate.validator.version>6.0.10.Final</hibernate.validator.version>
     </properties>
 
     <dependencies>
-        <!-- Hibernate to provides ORM capabilities -->
+        <!-- Hibernate to provides ORM capabilities. -->
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.core.version}</version>
+            <exclusions>
+                <exclusion>
+                    <!-- hibernate-validator already provides the latest version -->
+                    <groupId>com.fasterxml</groupId>
+                    <artifactId>classmate</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- Hibernate-Validator to provides bean validation. -->
+        <!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate.validator.version}</version>
         </dependency>
     </dependencies>
 
