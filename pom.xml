@@ -22,6 +22,7 @@
         <!-- Dependencies -->
         <junit.version>5.2.0</junit.version>
         <equalsverifier.version>2.4.6</equalsverifier.version>
+        <assertj.core.version>3.10.0</assertj.core.version>
     </properties>
 
     <dependencies>
@@ -41,6 +42,15 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>runtime</scope>
+        </dependency>
+
+        <!-- AssertJ to provides fluent assertion statements. -->
+        <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.core.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- EqualsVerifier to check if the equals() and hashCode() method was implemented correctly. -->
