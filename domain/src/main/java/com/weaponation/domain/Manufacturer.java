@@ -1,9 +1,13 @@
 package com.weaponation.domain;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -23,12 +27,26 @@ public class Manufacturer extends BaseEntity {
     @Column(name = "NAME", unique = true, nullable = false, length = MAX_NAME_LENGTH)
     private String name;
 
+    @OneToMany(mappedBy = "manufacturer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Product> products;
+
     protected Manufacturer() {
         // An no argument constructor is required by JPA specification
     }
 
     public Manufacturer(@NotBlank String name) {
         this.name = name;
+        this.products = new HashSet<>();
+    }
+
+    public void addProduct(Product product) {
+        product.setManufacturer(this);
+        products.add(product);
+    }
+
+    public void removeProduct(Product product) {
+        product.setManufacturer(null);
+        products.remove(product);
     }
 
     public String getName() {
