@@ -12,4 +12,18 @@
 
     <artifactId>repository</artifactId>
 
+    <properties>
+        <spring.data.jpa.version>2.0.7.RELEASE</spring.data.jpa.version>
+    </properties>
+
+    <dependencies>
+        <!-- Spring Data JPA to easily implement JPA based repositories, while avoiding boilerplate code. -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${spring.data.jpa.version}</version>
+        </dependency>
+    </dependencies>
+
 </project>
