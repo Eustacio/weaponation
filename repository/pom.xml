@@ -17,6 +17,13 @@
     </properties>
 
     <dependencies>
+        <!-- This module uses entity classes of the "domain" module. -->
+        <dependency>
+            <groupId>com.eustacio.weaponation</groupId>
+            <artifactId>domain</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+        </dependency>
+
         <!-- Spring Data JPA to easily implement JPA based repositories, while avoiding boilerplate code. -->
         <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
         <dependency>
