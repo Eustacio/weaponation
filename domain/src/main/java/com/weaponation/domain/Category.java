@@ -1,9 +1,15 @@
 package com.weaponation.domain;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -23,12 +29,30 @@ public class Category extends BaseEntity {
     @Column(name = "NAME", unique = true, nullable = false, length = MAX_NAME_LENGTH)
     private String name;
 
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "CATEGORY_PRODUCT",
+            joinColumns = @JoinColumn(name = "CATEGORY_ID"),
+            inverseJoinColumns = @JoinColumn(name = "PRODUCT_ID")
+    )
+    private Set<Product> products;
+
     protected Category() {
         // An no argument constructor is required by JPA specification
     }
 
     public Category(@NotBlank String name) {
         this.name = name;
+        this.products = new HashSet<>();
+    }
+
+    public void addProduct(Product product) {
+        product.addCategory(this);
+        products.add(product);
+    }
+
+    public void removeProduct(Product product) {
+        product.removeCategory(this);
+        products.remove(product);
     }
 
     public String getName() {
