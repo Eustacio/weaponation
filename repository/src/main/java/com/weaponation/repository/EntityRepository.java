@@ -1,3 +1,5 @@
+package com.weaponation.repository;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

@@ -1,3 +1,5 @@
+package com.weaponation.repository;
+
 import com.weaponation.domain.Manufacturer;
 
 /**
