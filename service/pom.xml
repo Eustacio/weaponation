@@ -12,4 +12,14 @@
 
     <artifactId>service</artifactId>
 
+    <dependencies>
+        <!-- This module uses entity classes of the "domain" module. -->
+        <dependency>
+            <groupId>com.eustacio.weaponation</groupId>
+            <artifactId>domain</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
 </project>
