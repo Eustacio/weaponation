@@ -18,7 +18,12 @@
             <groupId>com.eustacio.weaponation</groupId>
             <artifactId>domain</artifactId>
             <version>0.1.0-SNAPSHOT</version>
-            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.eustacio.weaponation</groupId>
+            <artifactId>repository</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
