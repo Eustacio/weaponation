@@ -12,6 +12,7 @@
     <modules>
         <module>domain</module>
         <module>repository</module>
+        <module>service</module>
     </modules>
 
     <properties>
