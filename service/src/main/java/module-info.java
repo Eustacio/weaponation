@@ -7,4 +7,7 @@ module com.weaponation.service {
 
     // Necessary to use @Autowired annotation
     requires spring.beans;
+
+    // Necessary to use spring dao exceptions
+    requires spring.tx;
 }
