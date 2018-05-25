@@ -22,12 +22,20 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Dependencies -->
+        <spring.webmvc.version>5.0.6.RELEASE</spring.webmvc.version>
         <junit.version>5.2.0</junit.version>
         <equalsverifier.version>2.4.6</equalsverifier.version>
         <assertj.core.version>3.10.0</assertj.core.version>
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.webmvc.version}</version>
+        </dependency>
+
         <!-- JUnit Jupiter API for writing tests. -->
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <dependency>
