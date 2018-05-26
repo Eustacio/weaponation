@@ -39,7 +39,7 @@ public class Product extends BaseEntity {
     @Column(name = "SPECIFICATIONS", length = MAX_SPECIFICATION_LENGTH)
     private String specifications;
 
-    @Column(name = "PRICE")
+    @Column(name = "PRICE", nullable = false)
     private BigDecimal price;
 
     @ManyToMany(mappedBy = "products")
