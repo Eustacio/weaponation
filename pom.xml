@@ -44,7 +44,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
-            <scope>test</scope>
         </dependency>
 
         <!-- H2 in-memory database, to use in development and tests, without the risk of mess the real database. -->
