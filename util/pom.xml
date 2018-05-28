@@ -13,7 +13,7 @@
     <artifactId>util</artifactId>
 
     <dependencies>
-        <!-- This module use the "Profile" class from the "core" module. -->
+        <!-- This module use the "Profiles" class from the "core" module. -->
         <dependency>
             <groupId>com.eustacio.weaponation</groupId>
             <artifactId>core</artifactId>
