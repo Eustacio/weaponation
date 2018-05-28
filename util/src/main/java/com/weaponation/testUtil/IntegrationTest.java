@@ -1,7 +1,7 @@
 package com.weaponation.testUtil;
 
 import com.weaponation.core.config.RootApplicationContext;
-import com.weaponation.core.settings.Profile;
+import com.weaponation.core.settings.Profiles;
 
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
@@ -15,7 +15,7 @@ import java.lang.annotation.Target;
 /**
  * @author Wallison Freitas
  */
-@ActiveProfiles(Profile.INTEGRATION_TEST)
+@ActiveProfiles(Profiles.INTEGRATION_TEST)
 @SpringJUnitConfig(RootApplicationContext.class)
 @Transactional
 @Retention(RetentionPolicy.RUNTIME)
