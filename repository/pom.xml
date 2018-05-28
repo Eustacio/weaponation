@@ -17,6 +17,13 @@
     </properties>
 
     <dependencies>
+        <!-- This module uses the "Profiles" class of the "core" module. -->
+        <dependency>
+            <groupId>com.eustacio.weaponation</groupId>
+            <artifactId>core</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+        </dependency>
+
         <!-- This module uses entity classes of the "domain" module. -->
         <dependency>
             <groupId>com.eustacio.weaponation</groupId>
