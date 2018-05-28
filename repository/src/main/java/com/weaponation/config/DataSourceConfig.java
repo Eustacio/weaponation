@@ -1,5 +1,7 @@
 package com.weaponation.config;
 
+import com.weaponation.core.settings.Profiles;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -17,7 +19,7 @@ import javax.sql.DataSource;
 public class DataSourceConfig {
 
     @Bean("dataSource")
-    @Profile("development")
+    @Profile(Profiles.DEVELOPMENT)
     public DataSource developmentDataSource() {
         return new EmbeddedDatabaseBuilder()
                 .setName("embedded_database")
