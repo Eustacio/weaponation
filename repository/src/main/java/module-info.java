@@ -1,4 +1,5 @@
 module com.weaponation.repository {
+    requires com.weaponation.core;
     requires com.weaponation.domain;
 
     requires java.persistence;
