@@ -15,6 +15,7 @@
     <properties>
         <hibernate.core.version>5.3.0.Final</hibernate.core.version>
         <hibernate.validator.version>6.0.10.Final</hibernate.validator.version>
+        <jboss.transaction.api.version>2.0.0.Alpha1</jboss.transaction.api.version>
     </properties>
 
     <dependencies>
@@ -25,12 +26,25 @@
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.core.version}</version>
             <exclusions>
+                <!-- hibernate-validator already provides the latest version -->
                 <exclusion>
-                    <!-- hibernate-validator already provides the latest version -->
                     <groupId>com.fasterxml</groupId>
                     <artifactId>classmate</artifactId>
                 </exclusion>
+
+                <!-- We provide the latest version, because this has a conflict with the java.sql module. -->
+                <exclusion>
+                    <groupId>org.jboss.spec.javax.transaction</groupId>
+                    <artifactId>jboss-transaction-api_1.2_spec</artifactId>
+                </exclusion>
             </exclusions>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.jboss.spec.javax.transaction/jboss-transaction-api_1.2_spec -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.transaction</groupId>
+            <artifactId>jboss-transaction-api_1.2_spec</artifactId>
+            <version>${jboss.transaction.api.version}</version>
         </dependency>
 
         <!-- Hibernate-Validator to provides bean validation. -->
