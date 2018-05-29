@@ -6,6 +6,7 @@ module com.weaponation.repository {
     requires java.sql;
 
     requires spring.context;
+    requires spring.data.commons;
     requires spring.data.jpa;
     requires spring.jdbc;
     requires spring.orm;
