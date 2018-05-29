@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 public class DataSourceConfig {
 
     @Bean("dataSource")
-    @Profile(Profiles.DEVELOPMENT)
+    @Profile({Profiles.DEVELOPMENT, Profiles.INTEGRATION_TEST})
     public DataSource developmentDataSource() {
         return new EmbeddedDatabaseBuilder()
                 .setName("embedded_database")
