@@ -48,7 +48,6 @@ public class Product extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "MANUFACTURER_ID")
-    @Column(name = "MANUFACTURER")
     private Manufacturer manufacturer;
 
     protected Product() {
