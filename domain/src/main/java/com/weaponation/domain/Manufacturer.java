@@ -62,7 +62,7 @@ public class Manufacturer extends BaseEntity {
     }
 
     public Set<Product> getProducts() {
-        return products;
+        return Set.copyOf(products);
     }
 
     @Override
