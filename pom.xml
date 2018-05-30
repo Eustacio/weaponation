@@ -29,6 +29,7 @@
         <equalsverifier.version>2.4.6</equalsverifier.version>
         <assertj.core.version>3.10.0</assertj.core.version>
         <h2.version>1.4.197</h2.version>
+        <logback.version>1.2.3</logback.version>
     </properties>
 
     <dependencies>
@@ -37,6 +38,13 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
