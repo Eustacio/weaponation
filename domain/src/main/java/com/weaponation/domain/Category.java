@@ -52,11 +52,13 @@ public class Category extends BaseEntity {
     }
 
     public void addProduct(Product product) {
+        Objects.requireNonNull(product, "Product must be not null!");
         product.addCategory(this);
         products.add(product);
     }
 
     public void removeProduct(Product product) {
+        Objects.requireNonNull(product, "Product must be not null!");
         product.removeCategory(this);
         products.remove(product);
     }
