@@ -59,6 +59,10 @@ public class Manufacturer extends BaseEntity {
         return name;
     }
 
+    public Set<Product> getProducts() {
+        return products;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(getName());
