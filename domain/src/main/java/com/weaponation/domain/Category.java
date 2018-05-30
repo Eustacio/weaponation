@@ -67,6 +67,10 @@ public class Category extends BaseEntity {
         return name;
     }
 
+    public Set<Product> getProducts() {
+        return Set.copyOf(products);
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(getName());
