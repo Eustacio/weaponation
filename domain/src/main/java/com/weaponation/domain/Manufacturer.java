@@ -39,6 +39,12 @@ public class Manufacturer extends BaseEntity {
         this.products = new HashSet<>();
     }
 
+    public void addProducts(Product... products) {
+        for (Product product : products) {
+            this.addProduct(product);
+        }
+    }
+
     public void addProduct(Product product) {
         product.setManufacturer(this);
         products.add(product);
