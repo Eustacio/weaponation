@@ -12,6 +12,10 @@
 
     <artifactId>service</artifactId>
 
+    <properties>
+        <jaxb.api.version>2.3.0</jaxb.api.version>
+    </properties>
+
     <dependencies>
         <!-- This module uses entity classes of the "domain" module. -->
         <dependency>
@@ -30,6 +34,15 @@
             <groupId>com.eustacio.weaponation</groupId>
             <artifactId>util</artifactId>
             <version>0.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- We need this dependency to avoid NoClassDefFoundError: javax/xml/bind/JAXBException.
+             More info can be found in https://stackoverflow.com/questions/43574426/how-to-resolve-java-lang-noclassdeffounderror-javax-xml-bind-jaxbexception-in-j -->
+        <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${jaxb.api.version}</version>
         </dependency>
     </dependencies>
 
