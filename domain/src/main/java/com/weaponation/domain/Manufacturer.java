@@ -46,11 +46,13 @@ public class Manufacturer extends BaseEntity {
     }
 
     public void addProduct(Product product) {
+        Objects.requireNonNull(product, "Product must be not null!");
         product.setManufacturer(this);
         products.add(product);
     }
 
     public void removeProduct(Product product) {
+        Objects.requireNonNull(product, "Product must be not null!");
         product.setManufacturer(null);
         products.remove(product);
     }
