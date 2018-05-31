@@ -2,9 +2,11 @@ package com.weaponation.service;
 
 import com.weaponation.domain.BaseEntity;
 import com.weaponation.exception.DuplicateEntityException;
+import com.weaponation.exception.EntityNotFoundException;
 import com.weaponation.repository.EntityRepository;
 
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 
 import java.util.List;
 import java.util.Objects;
@@ -32,7 +34,16 @@ public abstract class EntityService<T extends BaseEntity> {
         }
     }
 
-    public abstract boolean delete(Long id);
+    public boolean delete(Long id) {
+        try {
+            repository.deleteById(id);
+        } catch (EmptyResultDataAccessException emptyResultDataAccessException) {
+            throw new EntityNotFoundException("Cannot delete entity with id '" + id +
+                    "' because it does not exists!", emptyResultDataAccessException);
+        }
+
+        return !repository.existsById(id);
+    }
 
     public Optional<T> findById(Long id) {
         return repository.findById(id);
