@@ -15,6 +15,7 @@
         <module>service</module>
         <module>core</module>
         <module>util</module>
+        <module>web</module>
     </modules>
 
     <properties>
