@@ -27,7 +27,7 @@
         <!-- Dependencies -->
         <spring.version>5.0.6.RELEASE</spring.version>
         <junit.version>5.2.0</junit.version>
-        <equalsverifier.version>2.4.6</equalsverifier.version>
+        <equalsverifier.version>2.4.7</equalsverifier.version>
         <assertj.core.version>3.10.0</assertj.core.version>
         <h2.version>1.4.197</h2.version>
         <logback.version>1.2.3</logback.version>
