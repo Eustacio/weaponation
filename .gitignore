@@ -1,6 +1,9 @@
 # Compiled class file
 *.class
 
+# Angular modules folder
+node_modules/
+
 # IntelliJ IDEA
 .idea/
 *.iml
