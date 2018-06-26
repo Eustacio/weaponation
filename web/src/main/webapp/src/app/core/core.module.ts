@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { MenubarModule } from 'primeng/menubar';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
@@ -12,6 +13,9 @@ import { BannerComponent } from './banner/banner.component';
   ],
   declarations: [
     ToolbarComponent,
+    BannerComponent
+  ],
+  exports: [
     BannerComponent
   ]
 })
