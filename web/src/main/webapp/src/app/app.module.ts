@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CoreModule } from './core/core.module';
 
 import { AppComponent } from './app.component';
+import { ToolbarComponent } from './core/toolbar/toolbar.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,9 @@ import { AppComponent } from './app.component';
   declarations: [
     AppComponent
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+    ToolbarComponent
+  ]
 })
 export class AppModule {}
