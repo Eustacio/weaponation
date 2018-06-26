@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MenubarModule } from 'primeng/menubar';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    MenubarModule
   ],
   declarations: [ToolbarComponent]
 })
