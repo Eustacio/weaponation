@@ -6,6 +6,7 @@ import { CarouselModule } from 'primeng/primeng';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { BannerComponent } from './banner/banner.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 @NgModule({
   imports: [
@@ -15,10 +16,12 @@ import { BannerComponent } from './banner/banner.component';
   ],
   declarations: [
     ToolbarComponent,
-    BannerComponent
+    BannerComponent,
+    BreadcrumbComponent
   ],
   exports: [
-    BannerComponent
+    BannerComponent,
+    BreadcrumbComponent
   ]
 })
 export class CoreModule {}
