@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MenubarModule } from 'primeng/menubar';
 import { CarouselModule } from 'primeng/primeng';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { BannerComponent } from './banner/banner.component';
@@ -12,7 +13,8 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
   imports: [
     CommonModule,
     MenubarModule,
-    CarouselModule
+    CarouselModule,
+    BreadcrumbModule
   ],
   declarations: [
     ToolbarComponent,
