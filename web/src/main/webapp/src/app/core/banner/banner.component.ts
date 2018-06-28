@@ -30,7 +30,7 @@ export class BannerComponent implements OnInit {
   }
 
   /**
-   * @return Number of maximum page links to display (wathe little dots above the image).
+   * @return Number of maximum page links to display (the little dots above the image).
    * If total page count exceeds this value a dropdown is displayed instead.
    * */
   get maxPageLinks(): number {
