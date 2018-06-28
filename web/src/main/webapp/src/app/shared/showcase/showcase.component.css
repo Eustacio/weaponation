@@ -1,0 +1,22 @@
+/*##########################################################################*/
+/*### Rules for the container that contains all contents of the showcase ###*/
+.ui-grid {
+    padding: 10px;
+}
+
+/*#####################################################*/
+/*### Rules for the image that displays the product ###*/
+.showcase-image {
+    margin: 0 auto;
+    height: 220px;
+    width: 100%;
+}
+
+/*###################################################################%%*/
+/*### Rules for the bottom of the showcase component, the part that ###*/
+/*### contains the price and the "add to cart" button.              ###*/
+.showcase-price-container {
+    align-items: center;
+    float: right;
+    width: 60%;
+}
