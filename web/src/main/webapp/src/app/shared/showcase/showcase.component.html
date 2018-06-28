@@ -1,0 +1,21 @@
+<p-carousel [value]="products" [pageLinks]="pageLinks"
+            [circular]="circular" [autoplayInterval]="autoPlayInterval">
+    <ng-template let-product pTemplate="product">
+        <div class="ui-grid ui-grid-responsive">
+            <div class="ui-grid-col-12">
+                <img class="showcase-image" src="../../../assets/images/banner/{{product.imageName}}">
+            </div>
+            <div class="ui-grid-col-12">
+                <p>{{product.description}}</p>
+            </div>
+            <div class="ui-grid-row showcase-price-container">
+                <div class="ui-grid-col-6">
+                    <h3>{{product.price}}</h3>
+                </div>
+                <div class="ui-grid-col-6">
+                    <p-button label="Add to Cart"></p-button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-carousel>
