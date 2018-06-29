@@ -18,6 +18,8 @@ export class ShowcaseComponent {
   // Time between the image change (in milliseconds)
   @Input() autoPlayInterval: number = 4000;
 
+  @Input() headerText: string;
+
   // The images that are displayed
   @Input() products: Product[];
 
