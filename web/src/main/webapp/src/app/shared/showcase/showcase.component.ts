@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 import { Product } from './product';
 
 @Component({
   selector: 'app-showcase',
   templateUrl: './showcase.component.html',
-  styleUrls: ['./showcase.component.css']
+  styleUrls: ['./showcase.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ShowcaseComponent {
 
