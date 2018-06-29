@@ -20,3 +20,13 @@
     float: right;
     width: 60%;
 }
+
+/*######################################################################*/
+/*### Rules for change the style of the header title of the carousel ###*/
+.showcase-carousel .ui-carousel-header {
+    text-align: center;
+}
+
+.showcase-carousel .ui-carousel-header .ui-carousel-header-title {
+    font-size: large;
+}
