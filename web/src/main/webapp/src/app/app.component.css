@@ -1,3 +1,9 @@
+/*#######################################*/
+/*## Rules for the content of the page ##*/
+.content {
+    padding: 10px 20px 0 20px;
+}
+
 /*############################################################*/
 /*### Rules for the bestsellers displayed on the home page ###*/
 .home-bestsellers .ui-carousel {

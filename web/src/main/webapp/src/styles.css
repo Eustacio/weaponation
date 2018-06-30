@@ -5,12 +5,6 @@
     width: 70%;
 }
 
-/*#######################################*/
-/*## Rules for the content of the page ##*/
-.content {
-    padding: 10px 20px 0 20px;
-}
-
 /*###############################################*/
 /*## Rules for the breadcrumb below the banner ##*/
 .ui-breadcrumb {
