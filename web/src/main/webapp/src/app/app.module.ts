@@ -4,21 +4,13 @@ import { NgModule } from '@angular/core';
 import { CoreModule } from './core/core.module';
 
 import { AppComponent } from './app.component';
-import { ToolbarComponent } from './core/toolbar/toolbar.component';
-import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   imports: [
     BrowserModule,
-    CoreModule,
-    SharedModule
+    CoreModule
   ],
-  declarations: [
-    AppComponent
-  ],
-  bootstrap: [
-    AppComponent,
-    ToolbarComponent
-  ]
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
