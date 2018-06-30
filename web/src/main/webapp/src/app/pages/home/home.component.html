@@ -1,0 +1,10 @@
+<app-banner class="home-banner"></app-banner>
+
+<!-- TODO: make the breadcrumb disappear on the home page -->
+<!--<app-breadcrumb></app-breadcrumb>-->
+
+<h1 style="text-align: center">Bestsellers</h1>
+
+<app-showcase class="home-bestsellers" [products]="handguns" [autoPlayInterval]="0" headerText="Handguns"></app-showcase>
+<app-showcase class="home-bestsellers" [products]="shotguns" [autoPlayInterval]="0" headerText="Shotguns"></app-showcase>
+<app-showcase class="home-bestsellers" [products]="rifles" [autoPlayInterval]="0" headerText="Rifles"></app-showcase>
