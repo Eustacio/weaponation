@@ -3,3 +3,7 @@
 .home-bestsellers .ui-carousel {
     margin-bottom: 30px;
 }
+
+.home-banner .ui-carousel {
+    margin-top: 50px;
+}
