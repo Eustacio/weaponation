@@ -3,4 +3,5 @@
 .ui-menubar {
     position: fixed;
     width: 70%; /* Same width as the 'container' class */
+    z-index: 999;
 }
