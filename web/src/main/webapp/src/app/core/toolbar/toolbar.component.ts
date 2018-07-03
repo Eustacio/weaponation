@@ -18,6 +18,11 @@ export class ToolbarComponent implements OnInit {
   private fillMenuOptions() {
     this.items = [
       {
+        icon: 'pi pi-home',
+        routerLink: ['/home']
+      },
+
+      {
         label: 'Firearms',
         items: [
           {
