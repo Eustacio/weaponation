@@ -7,6 +7,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -42,7 +43,7 @@ public class Product extends BaseEntity {
     @Column(name = "PRICE", nullable = false)
     private BigDecimal price;
 
-    @ManyToMany(mappedBy = "products")
+    @ManyToMany(mappedBy = "products", fetch = FetchType.EAGER)
     @Column(name = "CATEGORIES")
     private Set<Category> categories;
 
