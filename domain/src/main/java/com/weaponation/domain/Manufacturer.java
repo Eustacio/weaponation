@@ -1,5 +1,7 @@
 package com.weaponation.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -27,6 +29,7 @@ public class Manufacturer extends BaseEntity {
     @Column(name = "NAME", unique = true, nullable = false, length = MAX_NAME_LENGTH)
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "manufacturer", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Product> products;
 
