@@ -10,4 +10,6 @@ module com.weaponation.service {
 
     // Necessary to use spring dao exceptions
     requires spring.tx;
+
+    exports com.weaponation.service;
 }
