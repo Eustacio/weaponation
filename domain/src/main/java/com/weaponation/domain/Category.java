@@ -1,5 +1,7 @@
 package com.weaponation.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -29,6 +31,7 @@ public class Category extends BaseEntity {
     @Column(name = "NAME", unique = true, nullable = false, length = MAX_NAME_LENGTH)
     private String name;
 
+    @JsonIgnore
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "CATEGORY_PRODUCT",
             joinColumns = @JoinColumn(name = "CATEGORY_ID"),
