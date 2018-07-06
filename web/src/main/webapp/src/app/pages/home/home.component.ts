@@ -12,38 +12,13 @@ export class HomeComponent {
 
   // TODO: fetch all this information from the service
   handguns: Product[] = [
-    { name: 'p1', description: 'description 1', price: '$1234.1', imageName: '1911.jpg' },
-    { name: 'p2', description: 'description 2', price: '$1234.1', imageName: '1911.jpg' },
-    { name: 'p3', description: 'description 3', price: '$1234.1', imageName: '1911.jpg' },
-    { name: 'p1', description: 'description 1', price: '$1234.1', imageName: '1911.jpg' },
-    { name: 'p2', description: 'description 2', price: '$1234.1', imageName: '1911.jpg' },
-    { name: 'p3', description: 'description 3', price: '$1234.1', imageName: '1911.jpg' },
-    { name: 'p1', description: 'description 1', price: '$1234.1', imageName: '1911.jpg' },
-    { name: 'p2', description: 'description 2', price: '$1234.1', imageName: '1911.jpg' },
-    { name: 'p3', description: 'description 3', price: '$1234.1', imageName: '1911.jpg' }
+    {
+      id: 1, name: 'Product 1', description: 'product 1', specifications: '', price: 123,
+      categories: [{ id: 1, name: 'category 1' }], manufacturer: { id: 1, name: 'ACME' }
+    }
   ];
 
-  shotguns: Product[] = [
-    { name: 'p1', description: 'description 1', price: '$1234.1', imageName: 'granede_launcher.jpg' },
-    { name: 'p2', description: 'description 2', price: '$1234.1', imageName: 'granede_launcher.jpg' },
-    { name: 'p3', description: 'description 3', price: '$1234.1', imageName: 'granede_launcher.jpg' },
-    { name: 'p1', description: 'description 1', price: '$1234.1', imageName: 'granede_launcher.jpg' },
-    { name: 'p2', description: 'description 2', price: '$1234.1', imageName: 'granede_launcher.jpg' },
-    { name: 'p3', description: 'description 3', price: '$1234.1', imageName: 'granede_launcher.jpg' },
-    { name: 'p1', description: 'description 1', price: '$1234.1', imageName: 'granede_launcher.jpg' },
-    { name: 'p2', description: 'description 2', price: '$1234.1', imageName: 'granede_launcher.jpg' },
-    { name: 'p3', description: 'description 3', price: '$1234.1', imageName: 'granede_launcher.jpg' }
-  ];
+  shotguns: Product[] = this.handguns;
 
-  rifles: Product[] = [
-    { name: 'p1', description: 'description 1', price: '$1234.1', imageName: 'ar15_tactical.jpg' },
-    { name: 'p2', description: 'description 2', price: '$1234.1', imageName: 'ak47.jpg' },
-    { name: 'p3', description: 'description 3', price: '$1234.1', imageName: 'ak47.jpg' },
-    { name: 'p1', description: 'description 1', price: '$1234.1', imageName: 'ar15_tactical.jpg' },
-    { name: 'p2', description: 'description 2', price: '$1234.1', imageName: 'ak47.jpg' },
-    { name: 'p3', description: 'description 3', price: '$1234.1', imageName: 'ak47.jpg' },
-    { name: 'p1', description: 'description 1', price: '$1234.1', imageName: 'ar15_tactical.jpg' },
-    { name: 'p2', description: 'description 2', price: '$1234.1', imageName: 'ak47.jpg' },
-    { name: 'p3', description: 'description 3', price: '$1234.1', imageName: 'ak47.jpg' }
-  ];
+  rifles: Product[] = this.handguns;
 }
