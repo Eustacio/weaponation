@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Product } from '../../shared/showcase/product';
+import { Product } from '../../model/product';
 
 @Component({
   selector: 'app-home',
