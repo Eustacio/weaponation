@@ -3,5 +3,8 @@ export enum ServiceEvent {
   ENTITY_CREATED,
 
   /** Enum value used to describe that an existing entity was updated */
-  ENTITY_UPDATED
+  ENTITY_UPDATED,
+
+  /** Enum value used to describe that an existing entity was deleted */
+  ENTITY_DELETED
 }
