@@ -2,8 +2,8 @@ import { ErrorType } from './error-type.enum';
 
 export class ServiceError {
 
-  constructor(public readonly errorType: ErrorType,
-              public readonly message: string) {}
+  private constructor(public readonly errorType: ErrorType,
+                      public readonly message: string) {}
 
   static fromStatusCode(httpStatusCode: number): ServiceError | null {
     switch (httpStatusCode) {
