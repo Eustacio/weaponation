@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 import { Entity } from '../model/entity';
 import { ServiceError } from './error/service-error';
@@ -25,5 +25,13 @@ export abstract class EntityService<T extends Entity> {
     this.dataSubject = new BehaviorSubject([]);
     this.eventSubject = new Subject();
     this.errorSubject = new Subject();
+  }
+
+  get events(): Observable<ServiceEvent> {
+    return this.eventSubject.asObservable();
+  }
+
+  get errors(): Observable<ServiceError> {
+    return this.errorSubject.asObservable();
   }
 }
