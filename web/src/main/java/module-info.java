@@ -1,5 +1,6 @@
 module com.weaponation.web {
     requires com.weaponation.core;
+    requires com.weaponation.domain;
     requires com.weaponation.service;
 
     requires spring.beans;
