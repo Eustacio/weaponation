@@ -32,6 +32,7 @@
         <mockito.core.version>2.19.0</mockito.core.version>
         <h2.version>1.4.197</h2.version>
         <logback.version>1.2.3</logback.version>
+        <json.path.version>2.4.0</json.path.version>
     </properties>
 
     <dependencies>
@@ -96,6 +97,15 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>${mockito.core.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- json-path to be able to assert JSON content by using the MockMvcResultMatchers#jsonPath() method -->
+        <!-- https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path -->
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>${json.path.version}</version>
             <scope>test</scope>
         </dependency>
 
