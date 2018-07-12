@@ -29,6 +29,7 @@
         <junit.version>5.2.0</junit.version>
         <equalsverifier.version>2.4.8</equalsverifier.version>
         <assertj.core.version>3.10.0</assertj.core.version>
+        <hamcrest.junit.version>2.0.0.0</hamcrest.junit.version>
         <mockito.core.version>2.19.0</mockito.core.version>
         <h2.version>1.4.197</h2.version>
         <logback.version>1.2.3</logback.version>
@@ -89,6 +90,15 @@
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>${assertj.core.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- hamcrest-junit to provide more readable assertions -->
+        <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-junit -->
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-junit</artifactId>
+            <version>${hamcrest.junit.version}</version>
             <scope>test</scope>
         </dependency>
 
