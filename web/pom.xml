@@ -15,6 +15,7 @@
 
     <properties>
         <javax.servlet.api.version>4.0.1</javax.servlet.api.version>
+        <jackson.databind.version>2.9.6</jackson.databind.version>
     </properties>
 
     <dependencies>
@@ -24,6 +25,14 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>${javax.servlet.api.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <!-- jackson-databind is necessary to be able to return JSON from @RestController's methods -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.databind.version}</version>
         </dependency>
 
         <dependency>
