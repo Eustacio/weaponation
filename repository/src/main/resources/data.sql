@@ -58,4 +58,4 @@ values
    'Barrel Length Range: 28.00" to 29.99", Weight Range: 20.00 lbs and Above, ' ||
    'Hand: Right, Stock Finish Group: Synthetic, Metal Finish Group: Blued/Black', 12067.06);
 
-insert into CATEGORY_PRODUCT (CATEGORY_ID, PRODUCT_ID) values (1, 1);
+insert into CATEGORY_PRODUCT (CATEGORY_ID, PRODUCT_ID) values (1, 1), (8, 1), (14, 1);
