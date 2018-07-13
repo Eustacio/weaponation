@@ -1,24 +1,48 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
-import { Product } from '../../model/product';
+import { ProductService } from '../../service/product.service';
+import { ServiceEvent } from '../../service/event/service-event.enum';
+import { ServiceError } from '../../service/error/service-error';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit, OnDestroy {
 
+  private destroySubject: Subject<void>;
 
-  // TODO: fetch all this information from the service
-  handguns: Product[] = [
-    {
-      id: 1, name: 'Product 1', description: 'product 1', specifications: '', price: 123,
-      categories: [{ id: 1, name: 'category 1' }], manufacturer: { id: 1, name: 'ACME' }
-    }
-  ];
+  constructor(private productService: ProductService) {
+    this.destroySubject = new Subject();
+  }
 
-  shotguns: Product[] = this.handguns;
+  ngOnInit(): void {
+    this.registerForServiceEvents();
+    this.registerForServiceErrors();
+  }
 
-  rifles: Product[] = this.handguns;
+  ngOnDestroy(): void {
+    // Complete the Subject to avoid memory leaking when the component is destroyed
+    this.destroySubject.next();
+    this.destroySubject.complete();
+  }
+
+  private registerForServiceEvents(): void {
+    this.productService.events
+      .pipe(takeUntil(this.destroySubject))
+      .subscribe((event: ServiceEvent) => {
+        // TODO: properly handle events
+      });
+  }
+
+  private registerForServiceErrors(): void {
+    this.productService.errors
+      .pipe(takeUntil(this.destroySubject))
+      .subscribe((error: ServiceError) => {
+        // TODO: properly handle errors
+      });
+  }
 }
