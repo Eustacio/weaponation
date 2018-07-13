@@ -1,5 +1,22 @@
 insert into CATEGORY (ID, NAME) values
-  (1, 'Firearms'), (2, 'Ammo'), (3, 'Optics'), (4, 'Knives'), (5, 'Suppressors');
+  -- Main categories
+  (1, 'Firearms'), (2, 'Ammo'), (3, 'Optics'), (4, 'Knives'), (5, 'Suppressors'),
+
+  -- Firearms subcategories
+  (6, 'Handguns'), (7, 'Revolvers'), (8, 'Semi-Automatic'), (9, 'Automatic'),
+  (10, 'Shotguns'), (11, 'Pump Action'), (12, 'Lever Action'), (13, 'Single Shot'),
+  (14, 'Rifles'), (15, 'Bolt Action'),
+
+  -- Ammo subcategories
+  (16, 'Bulk Ammo'), (17, 'Blanks'),
+
+  -- Optics subcategories
+  (18, 'Binoculars'), (19, 'Flashlights'), (20, 'Night Vision'), (21, 'Rangefinder'),
+  (22, 'Scope Mounts'), (23, 'Scopes'), (24, 'Lasers'), (25, 'Sights'),
+  (26, 'Spotting Scopes'), (27, 'Thermal Optics'),
+
+  -- Knives subcategories
+  (28, 'Fixed Blade'), (29, 'Folding Blade'), (30, 'Accessories'), (31, 'Utility');
 
 insert into MANUFACTURER (ID, NAME) values
   (1, 'Barret'), (2, 'Beretta'), (3, 'CCI'), (4, 'CZ-USA'), (5, 'EOTech'),
