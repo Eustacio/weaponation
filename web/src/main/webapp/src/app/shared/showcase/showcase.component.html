@@ -2,7 +2,7 @@
             [circular]="circular" [autoplayInterval]="autoPlayInterval" class="showcase-carousel">
     <ng-template let-product pTemplate="product">
         <div class="ui-grid ui-grid-responsive">
-            <div class="ui-grid-col-12">
+            <div class="ui-grid-col-12" (click)="onProductSelected(product)">
                 <img class="showcase-image" src="../../../assets/images/banner/{{product.imageName}}">
             </div>
             <div class="ui-grid-col-12">

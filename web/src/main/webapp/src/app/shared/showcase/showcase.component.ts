@@ -1,6 +1,9 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 import { Product } from '../../model/product';
+import { DataExchangeService } from '../../service/data-exchange.service';
+import { ProductService } from '../../service/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-showcase',
@@ -24,4 +27,9 @@ export class ShowcaseComponent {
   // The images that are displayed
   @Input() products: Product[];
 
+  constructor(private dataExchangeService: DataExchangeService,
+              private service: ProductService,
+              private router: Router) {}
+
+  onProductSelected(product: Product): void {}
 }
