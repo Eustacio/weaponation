@@ -2,8 +2,8 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 import { Product } from '../../model/product';
 import { DataExchangeService } from '../../service/data-exchange.service';
-import { ProductService } from '../../service/product.service';
 import { Router } from '@angular/router';
+import { RouteMakerService } from '../../core/route/route-maker.service';
 
 @Component({
   selector: 'app-showcase',
@@ -28,8 +28,11 @@ export class ShowcaseComponent {
   @Input() products: Product[];
 
   constructor(private dataExchangeService: DataExchangeService,
-              private service: ProductService,
+              private routeMaker: RouteMakerService,
               private router: Router) {}
 
-  onProductSelected(product: Product): void {}
+  onProductSelected(product: Product): void {
+    this.dataExchangeService.selectedProduct = product;
+    this.router.navigate([this.routeMaker.productDetailsRoute(product)]);
+  }
 }
