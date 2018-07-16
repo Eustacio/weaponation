@@ -29,6 +29,10 @@ export abstract class EntityService<T extends Entity> {
     this.errorSubject = new Subject();
   }
 
+  get data(): Observable<T[]> {
+    return this.dataSubject.asObservable();
+  }
+
   get events(): Observable<ServiceEvent> {
     return this.eventSubject.asObservable();
   }
