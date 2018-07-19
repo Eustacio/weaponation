@@ -92,7 +92,28 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   private parseProductSpecification() {
-    // TODO: parse the specification of the product
-    this.specifications = [];
+    // The specifications of the product are returned as string,
+    // on the following pattern:
+    // "spec: value, spec: value, spec: value, ..."
+
+    this.specifications = this.product.specifications
+    // Split the string in the comma character, this results in a array
+    // in the following format: ["spec: value", "spec: value", ...].
+      .split(',')
+
+      // Convert each element in a instance of the "ProductSpecs" interface
+      .map((spec: string) => {
+        let parsedSpec: string[] = spec
+
+        // Split the spec on the colon character, resulting in a array
+        // in the following format: ["spec", "value"].
+          .split(':')
+
+          // Remove any empty space on the beginning or ending of "spec" and "value"
+          .map((spec: string) => spec.trim());
+
+        // Return an instance of the "ProductSpecs" interface
+        return { spec: parsedSpec[0], value: parsedSpec[1] };
+      });
   }
 }
