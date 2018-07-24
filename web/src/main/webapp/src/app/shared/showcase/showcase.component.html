@@ -6,7 +6,7 @@
                 <img class="showcase-image" src="../../../assets/images/banner/{{product.imageName}}">
             </div>
             <div class="ui-grid-col-12">
-                <p>{{product.description}}</p>
+                <p>{{product.description | ellipsisPipe:160}}</p>
             </div>
             <div class="ui-grid-row showcase-price-container">
                 <div class="ui-grid-col-6">
