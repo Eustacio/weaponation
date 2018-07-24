@@ -14,7 +14,7 @@
 
     <properties>
         <hibernate.core.version>5.3.0.Final</hibernate.core.version>
-        <hibernate.validator.version>6.0.10.Final</hibernate.validator.version>
+        <hibernate.validator.version>6.0.11.Final</hibernate.validator.version>
         <jboss.transaction.api.version>2.0.0.Alpha1</jboss.transaction.api.version>
         <jackson.annotations.version>2.9.6</jackson.annotations.version>
     </properties>
