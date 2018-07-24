@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -47,6 +48,10 @@ public class Product extends BaseEntity {
     @Column(name = "CATEGORIES")
     private Set<Category> categories;
 
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
+    @Column(name = "IMAGES")
+    private Set<Image> images;
+
     @ManyToOne
     @JoinColumn(name = "MANUFACTURER_ID")
     private Manufacturer manufacturer;
@@ -63,6 +68,7 @@ public class Product extends BaseEntity {
         this.specifications = specifications;
         this.price = price;
         this.categories = new HashSet<>(2);
+        this.images = new HashSet<>(4);
     }
 
     public void addCategory(Category category) {
@@ -71,6 +77,14 @@ public class Product extends BaseEntity {
 
     public void removeCategory(Category category) {
         categories.remove(category);
+    }
+
+    public void addImage(Image image) {
+        images.add(image);
+    }
+
+    public void removeImage(Image image) {
+        images.remove(image);
     }
 
     public String getName() {
@@ -111,6 +125,14 @@ public class Product extends BaseEntity {
 
     public void setCategories(Set<Category> categories) {
         this.categories = categories;
+    }
+
+    public Set<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(Set<Image> images) {
+        this.images = images;
     }
 
     public Manufacturer getManufacturer() {
