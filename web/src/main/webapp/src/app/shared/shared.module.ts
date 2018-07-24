@@ -5,6 +5,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 
 import { ShowcaseComponent } from './showcase/showcase.component';
+import { EllipsisPipe } from './pipes/ellipsis/ellipsis.pipe';
 
 @NgModule({
   imports: [
@@ -13,10 +14,12 @@ import { ShowcaseComponent } from './showcase/showcase.component';
     ButtonModule
   ],
   declarations: [
-    ShowcaseComponent
+    ShowcaseComponent,
+    EllipsisPipe
   ],
   exports: [
-    ShowcaseComponent
+    ShowcaseComponent,
+    EllipsisPipe
   ]
 })
 export class SharedModule {}
