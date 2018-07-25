@@ -3,6 +3,7 @@ import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from 'ngx-gal
 
 import { DataExchangeService } from '../../service/data-exchange.service';
 import { Product } from '../../model/product';
+import { Image } from '../../model/image';
 
 
 interface ProductSpecs {
@@ -31,6 +32,7 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(private dataExchangeService: DataExchangeService) {
     this.product = this.dataExchangeService.selectedProduct;
+    this.galleryImages = [];
   }
 
   ngOnInit(): void {
@@ -61,34 +63,15 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   private setupGalleryImages() {
-    // TODO: replace with images of the product
-    this.galleryImages = [
-      {
-        small: 'https://images5.alphacoders.com/633/633362.jpg',
-        medium: 'https://images5.alphacoders.com/633/633362.jpg',
-        big: 'https://images5.alphacoders.com/633/633362.jpg'
-      },
-      {
-        small: 'https://images.alphacoders.com/157/157333.jpg',
-        medium: 'https://images.alphacoders.com/157/157333.jpg',
-        big: 'https://images.alphacoders.com/157/157333.jpg'
-      },
-      {
-        small: 'https://images.alphacoders.com/223/223421.jpg',
-        medium: 'https://images.alphacoders.com/223/223421.jpg',
-        big: 'https://images.alphacoders.com/223/223421.jpg'
-      },
-      {
-        small: 'https://images5.alphacoders.com/322/322185.jpg',
-        medium: 'https://images5.alphacoders.com/322/322185.jpg',
-        big: 'https://images5.alphacoders.com/322/322185.jpg'
-      },
-      {
-        small: 'https://images6.alphacoders.com/412/412813.jpg',
-        medium: 'https://images6.alphacoders.com/412/412813.jpg',
-        big: 'https://images6.alphacoders.com/412/412813.jpg'
-      }
-    ];
+    // Maps each image of the product to the NgxGalleryImage type,
+    // and add it to the "galleryImages" array.
+    this.product.images.forEach((image: Image) => {
+      this.galleryImages.push({
+        small: image.smallSizeImage,
+        medium: image.mediumSizeImage,
+        big: image.largeSizeImage
+      });
+    });
   }
 
   private parseProductSpecification() {
