@@ -86,7 +86,7 @@ export class ProductDetailsComponent implements OnInit {
 
       // Convert each element in a instance of the "ProductSpecs" interface
       .map((spec: string) => {
-        let parsedSpec: string[] = spec
+        const parsedSpec: string[] = spec
 
         // Split the spec on the colon character, resulting in a array
         // in the following format: ["spec", "value"].
