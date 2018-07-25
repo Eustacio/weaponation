@@ -28,6 +28,9 @@ public class Image extends BaseEntity {
     @Column(name = "LARGE_SIZE_IMAGE")
     private String largeSizeImage;
 
+    @Column(name = "DESCRIPTION")
+    private String description;
+
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinTable(name = "IMAGE_PRODUCT",
@@ -83,6 +86,14 @@ public class Image extends BaseEntity {
 
     public Product getProduct() {
         return product;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
