@@ -3,7 +3,7 @@
     <ng-template let-product pTemplate="product">
         <div class="ui-grid ui-grid-responsive">
             <div class="ui-grid-col-12" (click)="onProductSelected(product)">
-                <img class="showcase-image" src="../../../assets/images/banner/{{product.imageName}}">
+                <img class="showcase-image" src="{{product.images[0].mediumSizeImage}}">
             </div>
             <div class="ui-grid-col-12">
                 <p>{{product.description | ellipsisPipe:160}}</p>
