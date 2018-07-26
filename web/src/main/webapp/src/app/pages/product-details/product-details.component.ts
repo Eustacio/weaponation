@@ -49,6 +49,7 @@ export class ProductDetailsComponent implements OnInit {
         imageAutoPlay: true,
         imageAnimation: NgxGalleryAnimation.Slide,
         thumbnailsArrowsAutoHide: true,
+        thumbnailsColumns: this.thumbnailsColumns,
         previewFullscreen: true,
         previewCloseOnClick: true,
         previewCloseOnEsc: true,
@@ -98,5 +99,14 @@ export class ProductDetailsComponent implements OnInit {
         // Return an instance of the "ProductSpecs" interface
         return { spec: parsedSpec[0], value: parsedSpec[1] };
       });
+  }
+
+  /**
+   * Return the number of columns to use in the gallery.
+   * The number maximum of columns is four.
+   */
+  private get thumbnailsColumns(): number {
+    const numberOfImages: number = this.product.images.length;
+    return numberOfImages > 4 ? 4 : numberOfImages;
   }
 }
