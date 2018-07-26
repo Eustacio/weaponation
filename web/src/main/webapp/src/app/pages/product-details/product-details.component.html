@@ -12,9 +12,9 @@
         <hr/>
         <div>
             <label>Quantity:</label>
-            <p-button icon="pi pi-minus"></p-button>
-            <input title="quantity" type="text" pKeyFilter="int" min="1" value="1">
-            <p-button icon="pi pi-plus"></p-button>
+            <p-button icon="pi pi-minus" (onClick)="decreaseQuantity()"></p-button>
+            <input title="quantity" type="text" pKeyFilter="int" [min]="minProductQuantity" [value]="productQuantity">
+            <p-button icon="pi pi-plus" (onClick)="increaseQuantity()"></p-button>
 
             <p-button class="btn-add-to-chart" label="ADD TO CHART"></p-button>
         </div>

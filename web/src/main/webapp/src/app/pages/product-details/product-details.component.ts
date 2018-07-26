@@ -30,15 +30,34 @@ export class ProductDetailsComponent implements OnInit {
   // The specifications of the product
   specifications: ProductSpecs[];
 
+  readonly minProductQuantity: number = 1;
+  readonly maxProductQuantity: number = 10;
+
+  // The quantity of the chosen product
+  productQuantity: number;
+
   constructor(private dataExchangeService: DataExchangeService) {
     this.product = this.dataExchangeService.selectedProduct;
     this.galleryImages = [];
+    this.productQuantity = this.minProductQuantity;
   }
 
   ngOnInit(): void {
     this.setupGallery();
     this.setupGalleryImages();
     this.parseProductSpecification();
+  }
+
+  increaseQuantity(): void {
+    if (this.productQuantity < this.maxProductQuantity) {
+      this.productQuantity++;
+    }
+  }
+
+  decreaseQuantity(): void {
+    if (this.productQuantity > this.minProductQuantity) {
+      this.productQuantity--;
+    }
   }
 
   private setupGallery() {
