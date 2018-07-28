@@ -17,3 +17,9 @@ node_modules/
 # Maven
 log/
 target/
+
+# Python virtual environment folder
+venv/
+
+# Python Scrapy cache folder
+.scrapy/
