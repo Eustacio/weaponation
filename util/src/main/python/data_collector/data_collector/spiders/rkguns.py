@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
+from typing import List
 
 import scrapy
+from scrapy import Selector
 from scrapy.http import TextResponse, Request
 
 from data_collector.model.product import Product
@@ -30,4 +32,22 @@ class RKGunsSpider(scrapy.Spider):
         :param response: the response to parse
         :returns Request or an instance of Product
        """
-        pass
+        # Checks if we are on the product list page
+        if response.url.startswith('https://www.rkguns.com/handguns'):
+            # Select the link of the details page for all products on the page
+            info_pages: List[Selector] = response.css(".product-name a::attr(href)")
+
+            # Check if the page contains some link
+            if info_pages is not None:
+                # Creates an Request object for every link found, to be transformed in
+                # an Product instance on the "else" statement below.
+                for page in info_pages:
+                    yield Request(page.extract())
+
+        # We are in the product info page, therefore we already can extract the information
+        else:
+            return Product(name=self._extract_name(response))
+
+    @staticmethod
+    def _extract_name(response: TextResponse) -> str:
+        return response.css('.product-name h1::text').extract_first()
