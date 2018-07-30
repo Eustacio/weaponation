@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from decimal import Decimal
 from typing import List
 
 import scrapy
@@ -15,6 +14,6 @@ class Product(scrapy.Item):
     manufacturer: str = scrapy.Field()
     description: str = scrapy.Field()
     specifications: str = scrapy.Field()
-    price: Decimal = scrapy.Field()
+    price: str = scrapy.Field()
     category: List[str] = scrapy.Field()
     images: List[str] = scrapy.Field()
