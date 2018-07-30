@@ -46,8 +46,15 @@ class RKGunsSpider(scrapy.Spider):
 
         # We are in the product info page, therefore we already can extract the information
         else:
-            return Product(name=self._extract_name(response))
+            return Product(name=self._extract_name(response),
+                           manufacturer=self._extract_manufacturer(response))
 
     @staticmethod
     def _extract_name(response: TextResponse) -> str:
         return response.css('.product-name h1::text').extract_first()
+
+    @staticmethod
+    def _extract_manufacturer(response: TextResponse) -> str:
+        return response \
+            .xpath('//th[contains(text(), "Brand")]/following-sibling::td/text()') \
+            .extract_first()
