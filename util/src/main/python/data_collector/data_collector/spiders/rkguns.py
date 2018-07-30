@@ -48,7 +48,8 @@ class RKGunsSpider(scrapy.Spider):
         else:
             return Product(name=self._extract_name(response),
                            manufacturer=self._extract_manufacturer(response),
-                           description=self._extract_description(response))
+                           description=self._extract_description(response),
+                           price=self._extract_price(response))
 
     @staticmethod
     def _extract_name(response: TextResponse) -> str:
@@ -63,3 +64,7 @@ class RKGunsSpider(scrapy.Spider):
     @staticmethod
     def _extract_description(response: TextResponse) -> str:
         return response.css('.std p::text').extract_first()
+
+    @staticmethod
+    def _extract_price(response: TextResponse) -> str:
+        return response.css('.regular-price span::text').extract_first()[1:]
