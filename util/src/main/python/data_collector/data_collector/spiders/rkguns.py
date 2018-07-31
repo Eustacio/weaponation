@@ -23,6 +23,8 @@ class RKGunsSpider(scrapy.Spider):
     # A list of URLs where the spider will begin to crawl from
     start_urls = ['https://www.rkguns.com/handguns.html?limit=24']
 
+    category: List[str]
+
     def parse(self, response: TextResponse) -> [Request, Product]:
         """
         This is the default callback used by Scrapy to process downloaded responses, when their
@@ -34,6 +36,9 @@ class RKGunsSpider(scrapy.Spider):
        """
         # Checks if we are on the product list page
         if response.url.startswith('https://www.rkguns.com/handguns'):
+            # Extracts the category of this product page
+            self._extract_category(response)
+
             # Select the link of the details page for all products on the page
             info_pages: List[Selector] = response.css(".product-name a::attr(href)")
 
@@ -49,7 +54,12 @@ class RKGunsSpider(scrapy.Spider):
             return Product(name=self._extract_name(response),
                            manufacturer=self._extract_manufacturer(response),
                            description=self._extract_description(response),
-                           price=self._extract_price(response))
+                           price=self._extract_price(response),
+                           category=self.category)
+
+    def _extract_category(self, response: TextResponse) -> None:
+        self.category = response.xpath('//div[contains(@class, "breadcrumbs")]'
+                                       '/ul/li/*[self::a or self::strong]//text()').extract()
 
     @staticmethod
     def _extract_name(response: TextResponse) -> str:
