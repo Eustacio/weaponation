@@ -67,4 +67,4 @@ class RKGunsSpider(scrapy.Spider):
 
     @staticmethod
     def _extract_price(response: TextResponse) -> str:
-        return response.css('.regular-price span::text').extract_first()[1:]
+        return response.css('.regular-price span::text').extract_first(default='$')[1:]
