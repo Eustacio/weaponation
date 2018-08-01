@@ -55,7 +55,8 @@ class RKGunsSpider(scrapy.Spider):
                            manufacturer=self._extract_manufacturer(response),
                            description=self._extract_description(response),
                            price=self._extract_price(response),
-                           category=self.category)
+                           category=self.category,
+                           images=self._extract_images(response))
 
     def _extract_category(self, response: TextResponse) -> None:
         self.category = response.xpath('//div[contains(@class, "breadcrumbs")]'
@@ -78,3 +79,16 @@ class RKGunsSpider(scrapy.Spider):
     @staticmethod
     def _extract_price(response: TextResponse) -> str:
         return response.css('.regular-price span::text').extract_first(default='$')[1:]
+
+    @staticmethod
+    def _extract_images(response: TextResponse) -> List[dict]:
+        image_urls: List[str] = response.xpath('//a[contains(@class, "cloud-zoom-gallery")]'
+                                               '/@href').extract()
+
+        parsed_urls: List[dict] = []
+
+        for url in image_urls:
+            small_image: str = url.replace('800x800', '308x308')
+            parsed_urls.append({'large_image': url, 'small_image': small_image})
+
+        return parsed_urls
