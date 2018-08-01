@@ -56,7 +56,8 @@ class RKGunsSpider(scrapy.Spider):
                            description=self._extract_description(response),
                            price=self._extract_price(response),
                            category=self.category,
-                           images=self._extract_images(response))
+                           images=self._extract_images(response),
+                           specifications=self._extract_specifications(response))
 
     def _extract_category(self, response: TextResponse) -> None:
         self.category = response.xpath('//div[contains(@class, "breadcrumbs")]'
@@ -92,3 +93,20 @@ class RKGunsSpider(scrapy.Spider):
             parsed_urls.append({'large_image': url, 'small_image': small_image})
 
         return parsed_urls
+
+    @staticmethod
+    def _extract_specifications(response: TextResponse) -> List[dict]:
+        table_rows = response.xpath('//table[contains(@class, "data-table")]/tbody/tr')
+        data: List[dict] = []
+
+        for row in table_rows:
+            prop: str = row.xpath('th/text()').extract_first()
+
+            if prop == 'Price':
+                value: str = row.xpath('td/span/span/text()').extract_first()
+            else:
+                value: str = row.xpath('td/text()').extract_first()
+
+            data.append({prop: value})
+
+        return data
