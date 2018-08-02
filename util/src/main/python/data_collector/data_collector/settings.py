@@ -16,6 +16,11 @@ SPIDER_MODULES = ['data_collector.spiders']
 # Module where to create new spiders using the "scrapy genspider" command
 NEWSPIDER_MODULE = 'data_collector.spiders'
 
+# Enables custom middleware components
+SPIDER_MIDDLEWARES = {
+    'data_collector.middlewares.SqlConverterMiddleware': 500
+}
+
 # Whether to enable the cookies middleware. If disabled, no cookies will
 # be sent to web servers. (enabled by default)
 COOKIES_ENABLED = False
