@@ -10,5 +10,4 @@ class SqlConverterMiddleware:
 
     @classmethod
     def from_crawler(cls, crawler: Crawler):
-        settings = crawler.settings
-        return cls(settings.getbool('OUTPUT_SQL'))
+        return cls(crawler.settings.getbool('OUTPUT_SQL'))
