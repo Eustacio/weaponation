@@ -38,7 +38,7 @@ class RKGunsSpider(ProductSpider, scrapy.Spider):
         # Checks if we are on the product list page
         if response.url.startswith('https://www.rkguns.com/handguns'):
             # Extracts the category of this product page
-            self._extract_category(response)
+            self._set_category(response)
 
             # Select the link of the details page for all products on the page
             info_pages: List[Selector] = response.css(".product-name a::attr(href)")
@@ -81,12 +81,15 @@ class RKGunsSpider(ProductSpider, scrapy.Spider):
 
         return data
 
+    def _set_category(self, response: TextResponse) -> None:
+        self.category = response.xpath('//div[contains(@class, "breadcrumbs")]'
+                                       '/ul/li/*[self::a or self::strong]//text()').extract()
+
     def _extract_price(self, response: TextResponse) -> str:
         return response.css('.regular-price span::text').extract_first(default='$')[1:]
 
-    def _extract_category(self, response: TextResponse) -> None:
-        self.category = response.xpath('//div[contains(@class, "breadcrumbs")]'
-                                       '/ul/li/*[self::a or self::strong]//text()').extract()
+    def _extract_category(self, response: TextResponse) -> List[str]:
+        return self.category
 
     def _extract_images(self, response: TextResponse) -> List[dict]:
         image_urls: List[str] = response.xpath('//a[contains(@class, "cloud-zoom-gallery")]'
