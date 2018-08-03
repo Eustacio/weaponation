@@ -58,26 +58,21 @@ class RKGunsSpider(ProductSpider, scrapy.Spider):
         self.category = response.xpath('//div[contains(@class, "breadcrumbs")]'
                                        '/ul/li/*[self::a or self::strong]//text()').extract()
 
-    @staticmethod
-    def _extract_name(response: TextResponse) -> str:
+    def _extract_name(self, response: TextResponse) -> str:
         return response.css('.product-name h1::text').extract_first()
 
-    @staticmethod
-    def _extract_manufacturer(response: TextResponse) -> str:
+    def _extract_manufacturer(self, response: TextResponse) -> str:
         return response \
             .xpath('//th[contains(text(), "Brand")]/following-sibling::td/text()') \
             .extract_first()
 
-    @staticmethod
-    def _extract_description(response: TextResponse) -> str:
+    def _extract_description(self, response: TextResponse) -> str:
         return response.css('.std p::text').extract_first()
 
-    @staticmethod
-    def _extract_price(response: TextResponse) -> str:
+    def _extract_price(self, response: TextResponse) -> str:
         return response.css('.regular-price span::text').extract_first(default='$')[1:]
 
-    @staticmethod
-    def _extract_images(response: TextResponse) -> List[dict]:
+    def _extract_images(self, response: TextResponse) -> List[dict]:
         image_urls: List[str] = response.xpath('//a[contains(@class, "cloud-zoom-gallery")]'
                                                '/@href').extract()
 
@@ -89,8 +84,7 @@ class RKGunsSpider(ProductSpider, scrapy.Spider):
 
         return parsed_urls
 
-    @staticmethod
-    def _extract_specifications(response: TextResponse) -> List[dict]:
+    def _extract_specifications(self, response: TextResponse) -> List[dict]:
         table_rows = response.xpath('//table[contains(@class, "data-table")]/tbody/tr')
         data: List[dict] = []
 
