@@ -54,10 +54,6 @@ class RKGunsSpider(ProductSpider, scrapy.Spider):
         else:
             yield super().get_product(response)
 
-    def _extract_category(self, response: TextResponse) -> None:
-        self.category = response.xpath('//div[contains(@class, "breadcrumbs")]'
-                                       '/ul/li/*[self::a or self::strong]//text()').extract()
-
     def _extract_name(self, response: TextResponse) -> str:
         return response.css('.product-name h1::text').extract_first()
 
@@ -68,21 +64,6 @@ class RKGunsSpider(ProductSpider, scrapy.Spider):
 
     def _extract_description(self, response: TextResponse) -> str:
         return response.css('.std p::text').extract_first()
-
-    def _extract_price(self, response: TextResponse) -> str:
-        return response.css('.regular-price span::text').extract_first(default='$')[1:]
-
-    def _extract_images(self, response: TextResponse) -> List[dict]:
-        image_urls: List[str] = response.xpath('//a[contains(@class, "cloud-zoom-gallery")]'
-                                               '/@href').extract()
-
-        parsed_urls: List[dict] = []
-
-        for url in image_urls:
-            small_image: str = url.replace('800x800', '308x308')
-            parsed_urls.append({'large_image': url, 'small_image': small_image})
-
-        return parsed_urls
 
     def _extract_specifications(self, response: TextResponse) -> List[dict]:
         table_rows = response.xpath('//table[contains(@class, "data-table")]/tbody/tr')
@@ -99,3 +80,22 @@ class RKGunsSpider(ProductSpider, scrapy.Spider):
             data.append({prop: value})
 
         return data
+
+    def _extract_price(self, response: TextResponse) -> str:
+        return response.css('.regular-price span::text').extract_first(default='$')[1:]
+
+    def _extract_category(self, response: TextResponse) -> None:
+        self.category = response.xpath('//div[contains(@class, "breadcrumbs")]'
+                                       '/ul/li/*[self::a or self::strong]//text()').extract()
+
+    def _extract_images(self, response: TextResponse) -> List[dict]:
+        image_urls: List[str] = response.xpath('//a[contains(@class, "cloud-zoom-gallery")]'
+                                               '/@href').extract()
+
+        parsed_urls: List[dict] = []
+
+        for url in image_urls:
+            small_image: str = url.replace('800x800', '308x308')
+            parsed_urls.append({'large_image': url, 'small_image': small_image})
+
+        return parsed_urls
