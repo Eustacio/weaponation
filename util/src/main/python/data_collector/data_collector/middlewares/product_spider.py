@@ -5,8 +5,19 @@ from typing import List
 
 from scrapy.http import Response
 
+from data_collector.model.product import Product
+
 
 class ProductSpider(ABC):
+
+    def get_product(self, response: Response) -> Product:
+        return Product(name=self._extract_name(response),
+                       manufacturer=self._extract_manufacturer(response),
+                       description=self._extract_description(response),
+                       specifications=self._extract_specifications(response),
+                       price=self._extract_price(response),
+                       category=self._extract_category(response),
+                       images=self._extract_images(response))
 
     @abstractmethod
     def _extract_name(self, response: Response) -> str:
