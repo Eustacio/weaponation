@@ -52,13 +52,7 @@ class RKGunsSpider(ProductSpider, scrapy.Spider):
 
         # We are in the product info page, therefore we already can extract the information
         else:
-            yield Product(name=self._extract_name(response),
-                          manufacturer=self._extract_manufacturer(response),
-                          description=self._extract_description(response),
-                          price=self._extract_price(response),
-                          category=self.category,
-                          images=self._extract_images(response),
-                          specifications=self._extract_specifications(response))
+            yield super().get_product(response)
 
     def _extract_category(self, response: TextResponse) -> None:
         self.category = response.xpath('//div[contains(@class, "breadcrumbs")]'
