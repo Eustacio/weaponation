@@ -5,10 +5,11 @@ import scrapy
 from scrapy import Selector
 from scrapy.http import TextResponse, Request
 
+from data_collector.middlewares.product_spider import ProductSpider
 from data_collector.model.product import Product
 
 
-class RKGunsSpider(scrapy.Spider):
+class RKGunsSpider(ProductSpider, scrapy.Spider):
     """
     Spider subclass destined to crawl and scrap items from the
     https://www.rkguns.com/ website
